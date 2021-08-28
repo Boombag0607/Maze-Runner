@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+header{
+  height: 100px;
+  background-color: #b1d8aa;
+}
+input {
+  height: 20px;
+  width: 50px;
+}
+.algos {
+  height: 50px;
+  width:fit-content;
+  border: 2px solid darkblue;
+}
