@@ -23,5 +23,5 @@ input {
 .algos {
   height: 50px;
   width:fit-content;
-  border: 2px solid darkblue;
+  /* border: 2px solid darkblue; */
 }

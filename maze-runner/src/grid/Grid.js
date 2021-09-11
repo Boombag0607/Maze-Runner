@@ -28,16 +28,59 @@ export class Square extends React.Component {
 }
 
 export default class Grid extends React.Component {
-  state = {};
+  state = {
+    input: 0,
+    size: 0,
+  };
+  handleChange = (event) => {
+    this.setState({
+      input: event.target.value,
+    });
+  };
+  changeSize = () => {
+    this.setState({
+      size: this.state.input,
+    });
+    console.log(this.state.size);
+  };
   render() {
-    let gridArr = Array(16)
+    let gridArr = Array(this.state.size)
       .fill(null)
-      .map((x) => Array(16).fill(null));
+      .map((x, i) => Array(this.state.size.fill(null)));
     return (
-      <div className="grid">
-        {gridArr.map((arr, j) =>
-          arr.map((x, i) => <Square className="square" key={i + j} />)
-        )}
+      <div>
+        <div>
+          <input
+            value={this.state.input}
+            type="number"
+            onChange={this.handleChange}
+          ></input>
+          <button type="submit" onClick={this.handleChange}>
+            Submit
+          </button>
+        </div>
+        <div
+          className="grid"
+          style={{
+            display: "inline-block",
+            //flexWrap: 'wrap'
+          }}
+        >
+          {
+            // Array(this.state.size)
+            //   .fill(null)
+            //   .map((x, j) =>
+            //     Array(this.state.size)
+            //       .fill(null)
+            //       .map((y, i) => (
+            //         <Square className="square" key={i + j}></Square>
+            //       ))
+            //   )
+            gridArr.map((arr, j) =>
+              arr.map((x, i) => <Square className="square" key={i + j} />)
+            )
+          }
+        </div>
       </div>
     );
   }
